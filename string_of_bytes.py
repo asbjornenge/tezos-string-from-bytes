@@ -282,7 +282,7 @@ class StringOfBytes(sp.Contract):
   #
 
   @sp.onchain_view()
-  def get_string_from_bytes(self, params):
+  def string_from_bytes(self, params):
     sp.set_type(params, sp.TBytes)
     res = self.bytes_to_string(params)
     sp.result(res)
