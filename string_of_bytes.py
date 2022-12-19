@@ -1,6 +1,6 @@
 import smartpy as sp
         
-class StringOf(sp.Contract):
+class StringOfBytes(sp.Contract):
   def __init__(self, metadata):
     self.init(
       metadata=metadata,
@@ -39,7 +39,7 @@ class StringOf(sp.Contract):
         sp.bytes('0x1F'): 'US',
         sp.bytes('0x20'): 'SP',
         sp.bytes('0x21'): '!',
-        sp.bytes('0x22'): '"',
+        sp.bytes('0x22'): '\\"',
         sp.bytes('0x23'): '#',
         sp.bytes('0x24'): '$',
         sp.bytes('0x25'): '%',
@@ -97,11 +97,6 @@ class StringOf(sp.Contract):
         sp.bytes('0x59'): 'Y',
         sp.bytes('0x5A'): 'Z',
         sp.bytes('0x5B'): '[',
-        sp.bytes('0x5C'): '\\',
-        sp.bytes('0x5D'): ']',
-        sp.bytes('0x5E'): '^',
-        sp.bytes('0x5F'): '_',
-        sp.bytes('0x60'): '`',
         sp.bytes('0x61'): 'a',
         sp.bytes('0x62'): 'b',
         sp.bytes('0x63'): 'c',
@@ -145,7 +140,10 @@ class StringOf(sp.Contract):
         sp.bytes('0x8A'): 'Š',
         sp.bytes('0x8B'): '‹',
         sp.bytes('0x8C'): 'Œ',
+        sp.bytes('0x8D'): '',
         sp.bytes('0x8E'): 'Ž',
+        sp.bytes('0x8F'): '',
+        sp.bytes('0x90'): '',
         sp.bytes('0x91'): '‘',
         sp.bytes('0x92'): '’',
         sp.bytes('0x93'): '“',
@@ -158,6 +156,7 @@ class StringOf(sp.Contract):
         sp.bytes('0x9A'): 'š',
         sp.bytes('0x9B'): '›',
         sp.bytes('0x9C'): 'œ',
+        sp.bytes('0x9D'): '',
         sp.bytes('0x9E'): 'ž',
         sp.bytes('0x9F'): 'Ÿ',
         sp.bytes('0xA0'): 'NBSP',
@@ -268,10 +267,9 @@ class StringOf(sp.Contract):
     res = sp.local('res', '')
     index = sp.local('index', 0)
     hash_len = sp.local('hash_len', sp.len(_hash.value))
-    sp.while x.value < hash_len.value:
+    sp.while index.value < hash_len.value:
       res.value += (self.data.bytes_to_string[sp.slice(_hash.value, index.value, 1).open_some()])
       index.value = index.value + 1
-    sp.trace(res.value)
     return res.value
 
   ## Views
@@ -280,7 +278,7 @@ class StringOf(sp.Contract):
   @sp.onchain_view()
   def get_string_from_bytes(self, params):
     sp.set_type(params, sp.TBytes)
-    res = bytes_to_string(params)
+    res = self.bytes_to_string(params)
     sp.trace(res)
     sp.result(res)
 
