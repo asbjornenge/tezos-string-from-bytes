@@ -1,5 +1,6 @@
 bin/
 lib/
 output/
+compiled/
 pyvenv.cfg
 *.swp

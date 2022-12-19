@@ -14,7 +14,6 @@ metadata = {
 }
 
 sp.add_compilation_target("string_of_bytes", StringOfBytes.StringOfBytes(
-  admin, 
   metadata = sp.big_map(
     {
       "": sp.utils.bytes_of_string("tezos-storage:content"),
