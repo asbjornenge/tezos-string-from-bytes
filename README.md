@@ -2,6 +2,10 @@
 
 A small helper contract to get a `string` from a `bytes` type.
 
+NB! The string produced does not represent the bytes in any particular encoding (see the code for how it encodes them).
+
+Donations: tz1UZZnrre9H7KzAufFVm7ubuJh5cCfjGwam 
+
 ## Contracts
 
 ```
