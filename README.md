@@ -10,7 +10,7 @@ Donations: tz1UZZnrre9H7KzAufFVm7ubuJh5cCfjGwam
 
 ```
 Ghostnet: KT1V6rPYSGghLEgCW2wkcbq4uGAPf4aMTWzZ
-Mainnet: TBA
+Mainnet: KT1MeisR1bVWyiFQ9zmKNKkT85MQhkeFfcNP
 ```
 
 ## Usage
