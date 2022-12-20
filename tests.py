@@ -1,16 +1,16 @@
 import smartpy as sp
 from datetime import datetime
 
-StringOfBytes = sp.io.import_script_from_url("file:string_of_bytes.py")
+StringFromBytes = sp.io.import_script_from_url("file:string_from_bytes.py")
 
 allKind = 'all'
 
 def init(scenario):
-  sob = StringOfBytes.StringOfBytes(
+  sob = StringFromBytes.StringFromBytes(
     metadata = sp.big_map(
       {
         "": sp.utils.bytes_of_string("tezos-storage:content"),
-        "content": sp.utils.bytes_of_string('{"name": "String Of Bytes"}')
+        "content": sp.utils.bytes_of_string('{"name": "String From Bytes"}')
       }
     )
   )

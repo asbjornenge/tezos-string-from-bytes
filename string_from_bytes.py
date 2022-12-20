@@ -1,6 +1,6 @@
 import smartpy as sp
         
-class StringOfBytes(sp.Contract):
+class StringFromBytes(sp.Contract):
   def __init__(self, metadata):
     self.init(
       metadata=metadata,
